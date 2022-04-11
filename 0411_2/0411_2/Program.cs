@@ -106,7 +106,7 @@ class Program
   }
   static void Main(string[] args)
   {
-    //CopyAndCount("file1.txt");
+    CopyAndCount("file1.txt");
     CheckNumbers(args);
   }
 }

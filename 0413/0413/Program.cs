@@ -31,11 +31,19 @@ Problem 05 - SimpleMergeSort
 
 
 class Program {
+  static void PrintMatrix(int[,] matrix) {
+    for (int i = 0; i < matrix.GetLength(0); i++) {
+      for (int j = 0; j < matrix.GetLength(1); j++) {
+        Write($"{matrix[i, j],4}");
+      }
+      WriteLine("");
+    }
+  }
 
-    /*Problem 01 (SortInside)
-  Напишите метод для сортировки элементов внутри одномерного массива типа long между индексами iMin и iMax. Вне данного интервала числа должны остаться на своих местах.
-  static void SortInside(long[] arr, int iMin, int iMax). 
-  Приведите убедительную демонстрацию правильной работы метода.*/
+  /*Problem 01 (SortInside)
+Напишите метод для сортировки элементов внутри одномерного массива типа long между индексами iMin и iMax. Вне данного интервала числа должны остаться на своих местах.
+static void SortInside(long[] arr, int iMin, int iMax). 
+Приведите убедительную демонстрацию правильной работы метода.*/
 
   static void SortInside(long[] arr, int iMin, int iMax) {
     WriteLine($"unsorted array: ");
@@ -44,7 +52,7 @@ class Program {
     }
     WriteLine(" ");
     long temp;
-    for(int i = iMin; i < iMax; i++) {
+    for (int i = iMin; i < iMax; i++) {
       if (arr[i] > arr[i + 1]) {
         temp = arr[i + 1];
         arr[i + 1] = arr[i];
@@ -52,17 +60,24 @@ class Program {
       }
     }
     WriteLine($"sorted array between indexes {iMin} and {iMax}: ");
-    for(int i =0; i < arr.Length; i++) {
+    for (int i = 0; i < arr.Length; i++) {
       Write($"{arr[i]}  ");
     }
   }
 
-  /*Problem 02
-  Напишите следующие методы.
-
-  Создание случайной матрицы со значениями элементов от min до max 
-  static int[,] CreateRandomMatrix(int nRows, int nCols, int min = 0, int max = int.MaxValue)
-
+  /*  Создание случайной матрицы со значениями элементов от min до max 
+  static int[,] CreateRandomMatrix(int nRows, int nCols, int min = 0, int max = int.MaxValue)*/
+  static int[,] CreateRandomMatrix(int nRows, int nCols, int min = 0, int max = int.MaxValue) {
+    int[,] matrix = new int[nRows, nCols];
+    var rnd = new Random();
+    for (int i = 0; i < nRows; i++) {
+      for (int j = 0; j < nCols; j++) {
+        matrix[i, j] = rnd.Next(min, max);
+      }
+    }
+    return matrix;
+  }
+  /*
   Сортировка по строке row
   static void SortRow(int[,] mat, int row)
 
@@ -73,28 +88,117 @@ class Program {
   static void SortRows(int[,] mat)
 
   Сортировка по столбцам (сортировка всех столбцов по отдельности)
-  static void SortCols(int[,] mat) {
+  static void SortCols(int[,] mat) {*/
+  static void SortRow(int[,] mat, int row) {
+    int rowLength = mat.GetLength(1);
 
-  Для распечатки матрицы используйте метод 
-  static void PrintMatrix(int[,] mat)
-  */
-  static int[,] CreateRandomMatrix(int nRows, int nCols, int min = 0, int max = int.MaxValue) {
-    int[,] matrix = new int[nRows, nCols];
-    var rnd = new Random();
-    for(int i = 0; i < nRows; i++) {
-      for(int j=0; j< nCols; j++) {
-        matrix[i, j] = rnd.Next(min, max);
+    for (int i = 0; i < rowLength - 1; i++) {
+      for (int j = 0; j < rowLength - i - 1; j++) {
+        if (mat[row, j] > mat[row, j + 1]) {
+          int temp = mat[row, j];
+          mat[row, j] = mat[row, j + 1];
+          mat[row, j + 1] = temp;
+        }
+      }
+
+    }
+  }
+  static void SortCol(int[,] mat, int col) {
+    int colLength = mat.GetLength(0);
+    for (int i = 0; i < colLength - 1; i++) {
+      for (int j = 0; j < colLength - i - 1; j++) {
+        if (mat[j, col] > mat[j + 1, col]) {
+
+          int temp = mat[j, col];
+          mat[j, col] = mat[j + 1, col];
+          mat[j + 1, col] = temp;
+        }
+
       }
     }
-    return matrix;
+  }
+  static void SortRows(int[,] mat) {
+    int rowLength = mat.GetLength(1);
+    int colLength = mat.GetLength(0);
+
+    for (int k = 0; k < colLength; k++) {
+      for (int i = 0; i < rowLength - 1; i++) {
+        for (int j = 0; j < rowLength - i - 1; j++) {
+          if (mat[k, j] > mat[k, j + 1]) {
+            int temp = mat[k, j];
+            mat[k, j] = mat[k, j + 1];
+            mat[k, j + 1] = temp;
+          }
+        }
+      }
+    }
+  }
+  static void SortCols(int[,] mat) {
+    int rowLength = mat.GetLength(1);
+    int colLength = mat.GetLength(0);
+
+    for (int k = 0; k < rowLength; k++) {
+      for (int i = 0; i < colLength - 1; i++) {
+        for (int j = 0; j < colLength - i - 1; j++) {
+          if (mat[j, k] > mat[j + 1, k]) {
+
+            int temp = mat[j, k];
+            mat[j, k] = mat[j + 1, k];
+            mat[j + 1, k] = temp;
+          }
+
+        }
+      }
+    }
+      
   }
 
+    /*
+    Problem 03
+    Напишите метод
+    public static int MaxIdenticalNumbersCount(int[] arr),
+    возврашающий максимальное количество одинаковых чисел в массиве.8*/
+  public static int MaxIdenticalNumbersCount(int[] arr) {
+    Tuple<int, int>[] cnt = { };
+    for(int i = 0; i < arr.Length; i++) {
+      for(int j=0; j < cnt.Length; j++) {
 
+      }
+    }
+    return 0;
+  }
 
+  static void Demo1() {
+    long[] arr1 = { 3, 2, 6, 8, 1, 2, 9, 4, 8, 2 };
+    SortInside(arr1, 0, 3);
+    int row = 8; int col = 5;
+    int[,] matrix1 = CreateRandomMatrix(row, col, max: 100);
+    WriteLine("\n\nmatrix:");
+    PrintMatrix(matrix1);
+    WriteLine("");
+    var r = 3;
+    SortRow(matrix1, r);
+    WriteLine($"\n\n sorted matrix at row {r + 1}:");
+    PrintMatrix(matrix1);
+    WriteLine("");
+    var c = 0;
+    SortCol(matrix1, c);
+    WriteLine($"\n\n sorted matrix at column {c + 1}:");
+    PrintMatrix(matrix1);
+    WriteLine("");
+    SortRows(matrix1);
+    WriteLine($"\n\n sorted matrix at all rows:");
+    PrintMatrix(matrix1);
+    WriteLine("");
+    SortCols(matrix1);
+    WriteLine($"\n\n sorted matrix at all columns:");
+    PrintMatrix(matrix1);
+  }
 
   static void Main(string[] args) {
-    long[] arr1 = { 3,2,6,8,1,2,9,4,8,2};
-    SortInside(arr1, 0, 3);
+    Demo1();
+
+
   }
 }
 

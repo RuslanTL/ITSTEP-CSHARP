@@ -1,0 +1,80 @@
+﻿Problem 00
+Файлы groups_1_000_000.txt, students_10_000_000.txt.
+
+Реализуйте классы Group и Student.
+
+Файл Group.cs:
+public class Group {
+	public long GroupId { get; set; }
+	public string GroupName { get; set; }
+}
+
+public override string ToString() {
+	return $"{GroupId} {GroupName}";
+}
+
+private static Group GetGroupFromLine(string line) {
+//. . .
+}
+
+public static Group[] GetGroupsArr(string fileName, int size = 1_000_000) {
+. . . 
+}
+
+public static void PrintArray(Group[] arr) {
+// если больше 8, то первые 4 построчно, строка многоточий, последние 4 построчно
+//. . .
+}
+
+
+Файл Student.cs:
+public class Student {
+	public long StudentId { get; set; }
+	public string IIN { get; set; }
+	public string LastName { get; set; }
+	public string FirstName { get; set; }
+	public DateTime Birthday { get; set; }
+	public long GroupId { get; set; }
+}
+
+public override string ToString() {
+// по аналогии c Group
+}
+
+private static Student GetStudentFromLine(string line) {
+//. . .
+  DateTime birthday = DateTime.ParseExact(words[4], "MM/dd/yyyy", null);
+}
+		
+public static Student[] GetStudentsArr(string fileName, int size = 10_000_000) {
+//. . .
+}
+
+public static void PrintArray(Student[] arr) {
+// если больше 8 - то первые 4 построчно, строка многоточий, последние 4 построчно
+. . .
+}
+
+
+Измерьте времена создания массивов 1_000_000 групп и 10_000_000 студентов в режиме - x64, Release. 
+
+
+Образец файла Program.cs для отладки:
+static void Main(string[] args) {
+	string groupFileName = @"C:\_0\groups_1_000_000.txt";
+	string studentFileName = @"C:\_0\students_10_000_000.txt";
+	try {
+		var groupArr = Group.GetGroupsArr(groupFileName, 10);
+		Group.PrintArray(groupArr);
+		WriteLine();
+
+    var studArr = GetStudentsArr(studentFileName, 10);
+    Student.PrintArray(studArr);
+
+	} catch (Exception ex) {
+		WriteLine(ex.Message);
+	}
+	WriteLine("\nEnd . . .");
+	ReadLine();
+}
+

@@ -1,0 +1,70 @@
+﻿Problem 01
+Написать extention method для класса string HelloTo().
+Например:
+WriteLine("Pooh".HelloTo());
+WriteLine(studentName.HelloTo());
+WriteLine("Пятачок".HelloTo());
+
+
+
+Problem 02
+По подобию метода GetIntArray в Utils, напишите метод 
+public static List<int> GetIntList(int size, int min = 0, int max = int.MaxValue),
+возвращающий List случайных чисел.
+
+
+
+Problem 03
+Напишите метод
+public static List<int> GetSomeEvensList(int max),
+возвращающий все положительные целые четные числа меньше max, не делящиеся на 5.
+
+
+
+Problem 04 - GetOddEvenArrays
+Напишите метод, возвращающий кортеж из массивов нечетных и четных чисел, извлекаемых из переданного массива целых чисел:
+public static (int[] oddArr, int[] evenArr) GetOddEvenArrays(int[] arr).
+Для создания массива используйте Utils.GetIntArray, для распечатки - Utils.PrintArray(arrOdd); Utils.PrintArray(arrEven);
+Выполните проверку:
+WriteLine($"oddArr.Length + evenArr.Length == arr.Length: {oddArr.Length + evenArr.Length == arr.Length}");
+
+
+
+Problem 05 - GetOddEvenLists
+Решите предыдущую задачу, используя List<int>.
+public static (List<int> oddList, List<int> evenList) GetOddEvenLists(int[] arr) 
+
+Реализуйте метод распечатки
+public static void PrintList<T>(List<T> list, int width = 8, int decimals = 0)
+по подобию PrintArray<T>, или воспользуйтесь кодом:
+public static void PrintList<T>(List<T> list, int width = 8, int decimals = 0) {
+	PrintArray<T>(list.ToArray(), width, decimals);
+}
+
+Выполните проверку:
+WriteLine($"oddList.Count + evenList.Count == arr.Length: {oddList.Count + evenList.Count == arr.Length}");
+
+Обсудите преимущества данного подхода по сравнению с предыдущим.
+
+
+
+Problem 06
+Напишите метод, возвращающий кортеж из двух List<int> - чисел до первого вхождения числа splitter включительно и остальных.
+public static (List<int> firstList, List<int> secondList) GetSomeLists(int[] arr, int splitter).
+
+
+
+
+Problem 07
+Реализуйте следующие extention методы для класса String:
+DeleteSpaces() - удалить пробелы, переводы строк и символы табуляции 
+GetChar(int n) - символ в позиции n
+DeleteChars(char ch) - удалить все символы ch
+IsInt() - является ли строка представлением int (можно ли конвертировать?)
+IsDouble() - является ли строка представлением double (можно ли конвертировать?) 
+ToInt() - конвертация в int
+ToDouble() - конвертация в double
+
+Приведите пример использования fluent - способа вызова метода DeleteSpaces() вместе с другими библиотечными или собственными методами.
+
+

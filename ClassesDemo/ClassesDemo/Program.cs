@@ -121,7 +121,7 @@ namespace DemoNS {
       Vehicle v;
       v = new Bus();
       v.Display();
-      v = new Car();
+      v = new Car(); 
       v.Display();
       v = new Motorcycle();
       v.Display();
@@ -153,11 +153,11 @@ namespace DemoNS {
         //CastingDemo();
         //AsIsDemo();
         //MethodsDemo();
-        MainPolymorphismIdeaDemo();
+        //MainPolymorphismIdeaDemo();
 
         //AbstractsDemo();
         //ConstructorsDemo();
-        //ObjectDemo.Demo();
+        ObjectDemo.Demo();
         //BoxingDemo.Demo();
         //GetTypeDemo();
 

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro", "Intro\Intro.csproj", "{D8FD4609-030F-4399-8C9B-3BF0D3237B7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoubleLinkedList", "DLList\DoubleLinkedList.csproj", "{4F87B53B-E8C2-4E65-93BD-BD5CD1254942}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8FD4609-030F-4399-8C9B-3BF0D3237B7E}.Debug|x64.ActiveCfg = Debug|x64
+		{D8FD4609-030F-4399-8C9B-3BF0D3237B7E}.Debug|x64.Build.0 = Debug|x64
+		{D8FD4609-030F-4399-8C9B-3BF0D3237B7E}.Release|x64.ActiveCfg = Release|x64
+		{D8FD4609-030F-4399-8C9B-3BF0D3237B7E}.Release|x64.Build.0 = Release|x64
+		{4F87B53B-E8C2-4E65-93BD-BD5CD1254942}.Debug|x64.ActiveCfg = Debug|x64
+		{4F87B53B-E8C2-4E65-93BD-BD5CD1254942}.Debug|x64.Build.0 = Debug|x64
+		{4F87B53B-E8C2-4E65-93BD-BD5CD1254942}.Release|x64.ActiveCfg = Release|x64
+		{4F87B53B-E8C2-4E65-93BD-BD5CD1254942}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A998DB9-B2FC-454C-AE00-8C98C964AA80}
+	EndGlobalSection
+EndGlobal

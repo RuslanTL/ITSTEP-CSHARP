@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+LPRun7-x86.exe
+LPRun7-x64.exe
+LPRun7-arm64.exe
+LINQPad7-x86.exe
+LINQPad7-x64.exe
+LINQPad7-arm64.exe
+LINQPad.Runtime.dll
+LINQPad.GUI.dll

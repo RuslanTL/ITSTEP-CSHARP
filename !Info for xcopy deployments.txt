@@ -1,0 +1,21 @@
+LINQPAD AND XCOPY-DEPLOYMENTS
+
+LINQPad7.zip contains launchers for all supported architectures:
+
+LINQPad7-x64.exe    // for X64
+LINQPad7-x86.exe    // for X86 - choose this if you need to reference native 32-bit DLLs
+LINQPad7-arm64.exe  // for ARM64 machines such as Surface Pro X
+
+For command-line support:
+
+LPRun7-x64.exe    // X64
+LPRun7-x86.exe    // X86
+LPRun7-arm64.exe  // ARM64
+
+It is recommended that you rename/copy the launcher that corresponds to your native platform to LPRun7.exe.
+
+All of LINQPad's launchers work with .NET 3.1 -> .NET 6.0.
+If no compatible .NET has been installed, the launcher will bootstrap its installation.
+
+For information on how to include queries, connections, settings, etc. with portable deployments, look here:
+https://www.linqpad.net/PortableDeployment.aspx

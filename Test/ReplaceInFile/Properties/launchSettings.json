@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ReplaceInFile": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\_0\\War and Peace - UTF-8.txt\" \"NewBook.txt\" \"CHAPTER\" \"HELLO\""
+    }
+  }
+}
